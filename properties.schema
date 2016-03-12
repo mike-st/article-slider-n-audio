@@ -20,7 +20,7 @@
         "article": {
           "type":"object",
           "properties":{
-            "_articleBlockSlider": {
+            "_article-slider-n-audio": {
               "type":"object",
               "required":false,
               "legend": "BlockSlider",

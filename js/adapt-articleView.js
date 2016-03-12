@@ -96,7 +96,7 @@ define([
 
         _blockSliderConfigureControls: function(animate) {
 
-            var duration = this.model.get("_articleBlockSlider")._slideAnimationDuration || 200;
+            var duration = this.model.get("_article-slider-n-audio")._slideAnimationDuration || 200;
 
             if (this._disableAnimationOnce) animate = false;
             if (this._disableAnimations) animate = false;
@@ -145,7 +145,7 @@ define([
 
             
 
-            if (this.model.get("_articleBlockSlider")._hasTabs) {
+            if (this.model.get("_article-slider-n-audio")._hasTabs) {
                 var parentHeight = this.$('.item-button').parent().height();
                 this.$('.item-button').css({
                     height: parentHeight + 'px'
@@ -166,7 +166,7 @@ define([
 
             this._onBlockSliderDeviceChanged();
 
-            var startIndex = this.model.get("_articleBlockSlider")._startIndex || 0;
+            var startIndex = this.model.get("_article-slider-n-audio")._startIndex || 0;
 
             this._blockSliderMoveIndex(startIndex, false);
 
@@ -233,7 +233,7 @@ define([
                 this._blockSliderConfigureControls(animate);
             }
 
-            var duration = this.model.get("_articleBlockSlider")._slideAnimationDuration || 200;
+            var duration = this.model.get("_article-slider-n-audio")._slideAnimationDuration || 200;
 
             if (this._disableAnimationOnce) animate = false;
             if (this._disableAnimations) animate = false;
@@ -269,7 +269,7 @@ define([
 
             this._blockSliderShowAll();
 
-            var duration = this.model.get("_articleBlockSlider")._slideAnimationDuration || 200;
+            var duration = this.model.get("_article-slider-n-audio")._slideAnimationDuration || 200;
 
             var currentBlock = this.model.get("_currentBlock")
             var $currentBlock = $(blocks[currentBlock]);
@@ -292,7 +292,7 @@ define([
         },
 
         _blockSliderIsEnabledOnScreenSizes: function() {
-            var isEnabledOnScreenSizes = this.model.get("_articleBlockSlider")._isEnabledOnScreenSizes;
+            var isEnabledOnScreenSizes = this.model.get("_article-slider-n-audio")._isEnabledOnScreenSizes;
 
             var sizes = isEnabledOnScreenSizes.split(" ");
             if (_.indexOf(sizes, Adapt.device.screenSize) > -1) {
@@ -361,12 +361,12 @@ define([
                 maxHeight = $(this).height();
             });
 
-            var duration = (this.model.get("_articleBlockSlider")._heightAnimationDuration || 200) * 2;
+            var duration = (this.model.get("_article-slider-n-audio")._heightAnimationDuration || 200) * 2;
 
             if (this._disableAnimationOnce) animate = false;
             if (this._disableAnimations) animate = false;
 
-            if (this.model.get("_articleBlockSlider")._hasUniformHeight) {
+            if (this.model.get("_article-slider-n-audio")._hasUniformHeight) {
                 if (animate === false) {
                     $container.css({"height": maxHeight+"px"});
                 } else {
@@ -390,7 +390,7 @@ define([
 
             }
 
-            var minHeight = this.model.get("_articleBlockSlider")._minHeight;
+            var minHeight = this.model.get("_article-slider-n-audio")._minHeight;
             if (minHeight) {
                 $container.css({"min-height": minHeight+"px"});
             }

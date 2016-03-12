@@ -16,7 +16,7 @@ define([
 	//Extends core/js/views/articleView.js
 	var ArticleViewInitialize = ArticleView.prototype.initialize;
 	ArticleView.prototype.initialize = function(options) {
-		if (this.model.get("_articleBlockSlider")) {
+		if (this.model.get("_article-slider-n-audio")) {
 			//extend the articleView with new functionality
 			_.extend(this, ArticleViewExtension);
 		}
@@ -27,7 +27,7 @@ define([
 	//Extends core/js/models/articleModel.js
 	var ArticleModelInitialize = ArticleModel.prototype.initialize;
 	ArticleModel.prototype.initialize = function(options) {
-		if (this.get("_articleBlockSlider")) {
+		if (this.get("_article-slider-n-audio")) {
 			//extend the articleModel with new functionality
 			_.extend(this, ArticleModelExtension);
 

@@ -28,8 +28,8 @@
         </div>
     </div>
     {{/if}}
-    <div class="article-block-organise{{#if _articleBlockSlider._hasArrows}} has-arrows{{/if}}{{#if _articleBlockSlider._hasTabs}} has-tabs{{/if}}" role="region" {{#if _accessibility._ariaRegions.articleBlockSlider}}tabindex="0" aria-label="{{_accessibility._ariaRegions.articleBlockSlider}}"{{/if}}>
-	    <div class="article-block-slider clearfix" {{#if _articleBlockSlider.minHeight}}style="min-height: {{{_articleBlockSlider.minHeight}}}px"{{/if}}>
+    <div class="article-block-organise{{#if _article-slider-n-audio._hasArrows}} has-arrows{{/if}}{{#if _article-slider-n-audio._hasTabs}} has-tabs{{/if}}" role="region" {{#if _accessibility._ariaRegions.articleBlockSlider}}tabindex="0" aria-label="{{_accessibility._ariaRegions.articleBlockSlider}}"{{/if}}>
+	    <div class="article-block-slider clearfix" {{#if _article-slider-n-audio.minHeight}}style="min-height: {{{_article-slider-n-audio.minHeight}}}px"{{/if}}>
 	        <div class="block-container clearfix">
 
 	        </div>
@@ -37,17 +37,17 @@
 	    <div class="article-block-toolbar clearfix">
 	        
 	        <div class="item-button-container clearfix">
-	            {{#if _articleBlockSlider._hasArrows}}
+	            {{#if _article-slider-n-audio._hasArrows}}
 	                <a class="item-button-arrow" href="#" data-block-slider="left">
 	                    <div class="icon icon-controls-left"></div>
 	                </a>
 	            {{/if}}
-	            {{#if _articleBlockSlider._hasArrows}}
+	            {{#if _article-slider-n-audio._hasArrows}}
 	                <a class="item-button-arrow" href="#" data-block-slider="right">
 	                    <div class="icon icon-controls-right"></div>
 	                </a>
 	            {{/if}}
-	            {{#if _articleBlockSlider._hasTabs}}
+	            {{#if _article-slider-n-audio._hasTabs}}
 	            {{#each _itemButtons}}
 	                <a class="item-button {{_className}}" href="#" role="button" aria-label="{{_title}}" data-block-slider="index" data-block-slider-index="{{this._index}}"><span class="item-button-inner">{{_title}}</span></a>
 	            {{/each}}

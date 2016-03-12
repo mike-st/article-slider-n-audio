@@ -5,7 +5,7 @@ define([
 	var BlockSliderModel = {
 
 		isBlockSliderEnabled: function() {
-			return this.get("_articleBlockSlider") && this.get("_articleBlockSlider")._isEnabled;
+			return this.get("_article-slider-n-audio") && this.get("_article-slider-n-audio")._isEnabled;
 		}
 
 	};
