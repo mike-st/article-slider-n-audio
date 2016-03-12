@@ -191,6 +191,22 @@
 		}
 	}
 
+	// AUDIO PLAY & PAUSE BUTTON OVERRIDE FIXES AUDIO TO THE TOP OF THE PAGE
+	.audio-controls {
+		position: fixed !important;
+		z-index: 501 !important;
+		top: 0px !important;
+		left: 70px !important;
+	}
+
+	@media all and (max-width: @device-width-medium) {
+	    .audio-controls {
+	    	position: relative !important;
+	    	top: 0px !important;
+	    	left: inherit !important;
+	    }
+	}
+
 	.item-button-inner {
 		background-color: @button-color;
 		color: @button-text-color;
