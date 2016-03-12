@@ -1,5 +1,7 @@
 # article-slider-n-audio
 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/H-9wPMq9v5Q/0.jpg)](http://www.youtube.com/watch?v=H-9wPMq9v5Q)
+
 **Article Block Slider** is a C&G Kineo *presentation extension I have simple updated it's functionality to work with the deltanet/adapt-audio extension*.
 
 The extension changes the presentation of an article's blocks from being vertically stacked to horizontally ordered. This is achieved by implementing a left and right or tabbing navigational element to the article. By default, the **Article Block Slider** is available on large resolutions only (medium and small resolutions can be added but are currently unsupported). When viewing at other resolutions the blocks return to being vertically stacked.
