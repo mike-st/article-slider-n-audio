@@ -1,6 +1,6 @@
 # article-slider-n-audio
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/H-9wPMq9v5Q/0.jpg)](http://www.youtube.com/watch?v=H-9wPMq9v5Q)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/H-9wPMq9v5Q/1.jpg)](http://www.youtube.com/watch?v=H-9wPMq9v5Q)
 
 **Article Block Slider** is a C&G Kineo *presentation extension I have simple updated it's functionality to work with the deltanet/adapt-audio extension*.
 
