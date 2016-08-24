@@ -195,6 +195,8 @@ define([
                 $('.article-block-slider .nth-child-'+ (this.model.get("_currentBlock") + 1) + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
+                $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
+                $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 break;
             case "index":
                 var index = parseInt($(event.currentTarget).attr("data-block-slider-index"));
@@ -202,6 +204,8 @@ define([
 
                 $('.navigation .navigation-inner .audio-toggle .audio-nav-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
                 $('.article-block-slider .nth-child-'+ (this.model.get("_currentBlock") + 1) + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
+                $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
+                $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 break;
             case "right":
                 this._blockSliderMoveRight();
@@ -210,6 +214,8 @@ define([
                 $('.article-block-slider .nth-child-'+ (this.model.get("_currentBlock") + 1) + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
+                $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
+                $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 break;
             }
 
