@@ -197,6 +197,20 @@ define([
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
                 $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
+                //BELOW ADDES BLOCK NEXT IF YOU ADD THE CLASS blocknext TO THE BLOCK
+                if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) ).hasClass( 'blocknext' ) ) {
+                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) +' .component-widget').hasClass( 'submitted' ) ) {
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                    }else{
+                        $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    }
+                }else{
+                    $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                }
+                $(".buttons-action") .click(function(){
+                    $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
+                });
                 break;
             case "index":
                 var index = parseInt($(event.currentTarget).attr("data-block-slider-index"));
@@ -216,6 +230,20 @@ define([
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
                 $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
+                //BELOW ADDES BLOCK NEXT IF YOU ADD THE CLASS blocknext TO THE BLOCK
+                if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) ).hasClass( 'blocknext' ) ) {
+                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) +' .component-widget').hasClass( 'submitted' ) ) {
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                    }else{
+                        $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    }
+                }else{
+                    $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                }
+                $(".buttons-action") .click(function(){
+                    $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
+                });
                 break;
             }
 
