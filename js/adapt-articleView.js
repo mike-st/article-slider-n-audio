@@ -191,26 +191,45 @@ define([
             case "left":
                 this._blockSliderMoveLeft();
 
+                var blocknextcur = (this.model.get("_currentBlock") + 1);
                 $('.navigation .navigation-inner .audio-toggle .audio-nav-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
-                $('.article-block-slider .nth-child-'+ (this.model.get("_currentBlock") + 1) + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
+                $('.article-block-slider .nth-child-'+ blocknextcur + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
-                $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
+                $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
                 $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 //BELOW ADDES BLOCK NEXT IF YOU ADD THE CLASS blocknext TO THE BLOCK
-                if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) ).hasClass( 'blocknext' ) ) {
-                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
-                    if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) +' .component-widget').hasClass( 'submitted' ) ) {
+                if ($('.nth-child-'+ blocknextcur ).hasClass( 'blocknext' ) ) {
+                    if ($('.nth-child-'+ blocknextcur +' .component-widget').hasClass( 'submitted' ) ) {
                         $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
                     }else{
                         $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
-                    }
+                    };
+                    if ($('.nth-child-'+ blocknextcur +' .component .accessibility-state .aria-label').is('#buttons-aria-label-complete') ) {
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                    }else{
+                        $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    };
+                    //ON MOUSE MOVE SEE IF COMPONENT HAS BEEN SUBMITTED
+                    $('.blocknext') .mousemove(function(event){
+                        if ($('.nth-child-' + blocknextcur + '.blocknext .aria-label').is('#buttons-aria-label-incomplete') ) {
+                            $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'}); //BLOCKNEXT IF NOT COMPLETE DOES NOT SHOW RIGHT ARROW
+                        }else{
+                            $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //BLOCKNEXT IF COMPLETE REVEALS RIGHT ARROW
+                        };
+                    });
                 }else{
                     $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
-                }
-                $(".buttons-action") .click(function(){
+                };
+                $('.buttons-action') .click(function(){
                     $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
                 });
+                if ($('.nth-child-'+ blocknextcur ).hasClass( 'blocknotify' ) ) {
+                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'}); //BLOCKNEXT IF NOT COMPLETE DOES NOT SHOW RIGHT ARROW
+                    $('.notifyblocknext') .click(function(){
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
+                    });
+                };
                 break;
             case "index":
                 var index = parseInt($(event.currentTarget).attr("data-block-slider-index"));
@@ -224,26 +243,53 @@ define([
             case "right":
                 this._blockSliderMoveRight();
 
+                var blocknextcur = (this.model.get("_currentBlock") + 1);
                 $('.navigation .navigation-inner .audio-toggle .audio-nav-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
-                $('.article-block-slider .nth-child-'+ (this.model.get("_currentBlock") + 1) + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
+                $('.article-block-slider .nth-child-'+ blocknextcur + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
-                $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+(this.model.get("_currentBlock") + 1)+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
+                $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
                 $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 //BELOW ADDES BLOCK NEXT IF YOU ADD THE CLASS blocknext TO THE BLOCK
-                if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) ).hasClass( 'blocknext' ) ) {
-                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
-                    if ($('.nth-child-'+ (this.model.get("_currentBlock") + 1) +' .component-widget').hasClass( 'submitted' ) ) {
+                if ($('.nth-child-'+ blocknextcur ).hasClass( 'blocknext' ) ) {
+                    if ($('.nth-child-'+ blocknextcur +' .component-widget').hasClass( 'submitted' ) ) {
                         $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
                     }else{
                         $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
-                    }
+                    };
+                    if ($('.nth-child-'+ blocknextcur +' .component .accessibility-state .aria-label').is('#buttons-aria-label-complete') ) {
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
+                    }else{
+                        $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'});
+                    };
+                    //ON MOUSE MOVE SEE IF COMPONENT HAS BEEN SUBMITTED
+                    $('.blocknext') .mousemove(function(event){
+                        if ($('.nth-child-' + blocknextcur + '.blocknext .aria-label').is('#buttons-aria-label-incomplete') ) {
+                            $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'}); //BLOCKNEXT IF NOT COMPLETE DOES NOT SHOW RIGHT ARROW
+                        }else{
+                            $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //BLOCKNEXT IF COMPLETE REVEALS RIGHT ARROW
+                        };
+                    });
+                    //MOBILE TABLET VERSION
+                    $('.blocknext').bind('touchmove', function (e){
+                        if ($('.nth-child-' + blocknextcur + '.blocknext .aria-label').is('#buttons-aria-label-incomplete') ) {
+                            $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'}); //BLOCKNEXT IF NOT COMPLETE DOES NOT SHOW RIGHT ARROW
+                        }else{
+                            $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //BLOCKNEXT IF COMPLETE REVEALS RIGHT ARROW
+                        };
+                    });
                 }else{
                     $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'});
-                }
-                $(".buttons-action") .click(function(){
+                };
+                $('.buttons-action') .click(function(){
                     $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
                 });
+                if ($('.nth-child-'+ blocknextcur ).hasClass( 'blocknotify' ) ) {
+                    $('[data-block-slider="right"]').css({'z-index' : '-1', 'visibility' : 'hidden'}); //BLOCKNEXT IF NOT COMPLETE DOES NOT SHOW RIGHT ARROW
+                    $('.notifyblocknext') .click(function(){
+                        $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
+                    });
+                };
                 break;
             }
 
