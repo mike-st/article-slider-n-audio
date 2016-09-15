@@ -192,7 +192,7 @@ define([
                 this._blockSliderMoveLeft();
 
                 var blocknextcur = (this.model.get("_currentBlock") + 1);
-                $('.navigation .navigation-inner .audio-toggle .audio-nav-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
+                $('.nth-child-1.article-block-slider-enabled .audio-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
                 $('.article-block-slider .nth-child-'+ blocknextcur + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
@@ -244,7 +244,7 @@ define([
                 this._blockSliderMoveRight();
 
                 var blocknextcur = (this.model.get("_currentBlock") + 1);
-                $('.navigation .navigation-inner .audio-toggle .audio-nav-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
+                $('.nth-child-1.article-block-slider-enabled .audio-toggle').trigger('click').trigger('click'); //STOPS AUDIO BEFORE PROCEEDING TO FOLLOWING PAGE
                 $('.article-block-slider .nth-child-'+ blocknextcur + ' .block-inner .audio-controls .audio-toggle').trigger('click'); //PLAYS FOLLOWING PAGES AUDIO. BLOCKS OR COMPONENTS ONLY
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
