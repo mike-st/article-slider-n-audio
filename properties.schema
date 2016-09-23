@@ -98,11 +98,11 @@
                 },
                 "_minHeight": {
                   "type":"number",
-                  "required":true,
-                  "default": null,
+                  "required":false,
+                  "default": 800,
                   "title": "Min Height",
                   "inputType": "Number",
-                  "validators": ["required", "number"],
+                  "validators": [],
                   "help": "Sets a minimum height on the .article-block-slider container class."
                 }
               }
