@@ -7,7 +7,7 @@
     "issues": "https://github.com/mike-st/article-slider-n-audio/issues/",
     "displayName": "Article Block Slider",
     "extension": "article-slider-n-audio",
-    "description": "Revised the cgkineo adapt articleBlockSlider so that it can play audio based on next and prev buttons",
+    "description": "If enabled turns article blocks viewing format to horzontal layout moving left to right by clicking previous and next buttons",
     "main": "/js/article-slider-n-audio.js",
     "keywords": [
         "adapt-plugin",
