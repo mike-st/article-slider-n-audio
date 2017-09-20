@@ -109,6 +109,8 @@ define([
             }
 
             this.model.set("_itemButtons", itemButtons);
+
+
         },
 
         _blockSliderConfigureControls: function(animate) {
@@ -510,7 +512,7 @@ define([
 
             var $container = this.$el.find(".article-block-slider");
 
-            $blocks.css("width", $container.width()+"px");
+            $blocks.css({"width": $container.width()+"px"}).addClass('blockslider-bgimage'); //INSERTED
                 
             var blockWidth = $($blocks[0]).outerWidth();
             var totalWidth = $blocks.length * (blockWidth);
