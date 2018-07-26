@@ -213,6 +213,8 @@ define([
                 this._blockSliderMoveLeft();
 
                 var blocknextcur = (this.model.get("_currentBlock") + 1);
+                var mecuritem = (this.model.get("_currentBlock") + 2);
+                $('.article-block-slider .nth-child-'+ mecuritem + ' .block-inner .audio4slider .playing').trigger('click'); //STOPS AUDIO WHEN MOVING TO NEXT SLIDE
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>"); // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
@@ -253,6 +255,7 @@ define([
             case "index":
                 var index = parseInt($(event.currentTarget).attr("data-block-slider-index"));
                 this._blockSliderMoveIndex(index);
+                $('.article-block-slider .block .block-inner .audio4slider .playing').trigger('click'); //STOPS AUDIO WHEN MOVING TO NEXT SLIDE
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
                 $('html, body').animate({scrollTop: '-=1px'}, 100); // REMOVES THE 1px SO IT ISN'T NOTICED
                 break;
@@ -260,6 +263,7 @@ define([
                 this._blockSliderMoveRight();
 
                 var blocknextcur = (this.model.get("_currentBlock") + 1);
+                $('.article-block-slider .nth-child-'+ this.model.get("_currentBlock") + ' .block-inner .audio4slider .playing').trigger('click'); //STOPS AUDIO WHEN MOVING TO NEXT SLIDE
                 $('.navigation .navigation-inner div.pagenum').remove(); // REMOVE PREVIOUS PAGE NUMBERING
                 $('.navigation .navigation-inner').append("<div class='pagenum' style='display:none;'>Page "+blocknextcur+" of "+this.model.get("_totalBlocks")+"</div>");  // ADDED PAGE NUMBERING
                 $('html, body').animate({scrollTop: '+=1px'}, 100); // ACTIVATES BOOKMARK BY SCROLLING 1px
