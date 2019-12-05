@@ -251,6 +251,8 @@ define([
                         $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
                     });
                 };
+                $('.nth-child-'+ mecuritem + ' .backgroundVideo-inner video').get(0).pause(); //Pause Current Background Video Extension
+                $('.nth-child-' + blocknextcur + ' .backgroundVideo-inner video').get(0).play(); //Plays Prev Background Video Extension
                 break;
             case "index":
                 var index = parseInt($(event.currentTarget).attr("data-block-slider-index"));
@@ -308,6 +310,8 @@ define([
                         $('[data-block-slider="right"]').css({'z-index' : '10', 'visibility' : 'visible'}); //SUBMIT BUTTON CLICKED REVEALS RIGHT ARROW
                     });
                 };
+                $('.nth-child-'+ this.model.get("_currentBlock") + ' .backgroundVideo-inner video').get(0).pause(); //Pause Current Background Video Extension
+                $('.nth-child-' + blocknextcur + ' .backgroundVideo-inner video').get(0).play(); //Plays Next Background Video Extension
                 break;
             }
 
